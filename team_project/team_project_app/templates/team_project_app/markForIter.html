@@ -1,0 +1,324 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оценка по итерациям</title>
+  <link rel="stylesheet" href="{% static 'team_project_app/css/style.css' %}" >
+  <link rel="stylesheet" href="{% static 'team_project_app/css/style1.css' %}" >
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    .img-about {
+    background-image: url("{% static 'team_project_app/images/проект (1).svg' %}" );
+    background-repeat: no-repeat;
+    background-size: 17px,17px;
+    background-position: 50px 15px;
+    }
+
+    .img-task {
+    background-image: url("{% static 'team_project_app/images/Mask group.svg' %}" );
+    background-repeat: no-repeat;
+    background-size: 13px,15px;
+    background-position: 50px 15px;
+    }
+
+    .img-team{
+      background-image: url("{% static 'team_project_app/images/команда.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 30px,27px;
+      background-position: 43px 8px;
+    }
+
+    .img-lenta{
+      background-image: url("{% static 'team_project_app/images/список.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 15px,15px;
+      background-position: 50px 15px;
+    }
+
+    .img-doc{
+      background-image: url("{% static 'team_project_app/images/документ.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 15px,15px;
+      background-position: 50px 15px;
+    }
+
+    .img-time{
+      background-image: url("{% static 'team_project_app/images/календарь.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 14px,14px;
+      background-position: 52px 15px;
+    }
+
+    .img-discuss{
+      background-image: url("{% static 'team_project_app/images/сообщения.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 16px,16px;
+      background-position: 52px 15px;
+    }
+
+    .img-result{
+      background-image: url("{% static 'team_project_app/images/звездуля.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 17px,15px;
+      background-position: 33px 15px;
+    }
+</style>
+
+<body>
+
+  <nav class="pull-left page-left-column test fixed">
+
+
+
+    <header class="nav-header">
+      <a href="https://urfu.ru/ru/" target="" class="pull-left">
+        <img src="{% static 'team_project_app/images/logo.png' %}" alt="УрФУ">
+      </a>
+    </header>
+    <section>
+      <ul>
+        <li>
+          <a href="/about img-about">
+            <p class="headings-nav1">
+              О проекте</p>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/task">
+            <p class="headings-nav2 img-task">
+              Задачи</p>
+          </a>
+        </li>
+        <li>
+          <a href="/team">
+            <p class="headings-nav2 img-team">
+              Команда</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="/lenta">
+            <p class="headings-nav2 img-lenta">
+              Лента событий</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="/doc">
+            <p class="headings-nav2 img-doc">
+              Документы</p>
+          </a>
+        </li>
+        <li>
+          <a href="/time">
+            <p class="headings-nav2 img-time">
+              Календарь</p>
+          </a>
+        </li>
+        <li>
+          <a href="/discuss">
+            <p class="headings-nav2 img-discuss">
+              Обсуждение</p>
+          </a>
+        </li>
+      </ul>
+      <br>
+      <span block class="line">
+        <p class="headings-nav3 img-result">
+          Результаты и оценки
+        </p>
+
+        <ul block>
+          <li>
+            <a href="/markForIter">
+              <p class="headings-nav5" active>Оценка по итерациям</p>
+            </a>
+          </li>
+          <li>
+            <a href="/result">
+              <p class="headings-nav5 ">Результаты проекта</p>
+            </a>
+          </li>
+          <li>
+            <a href="/calculate">
+              <p class="headings-nav5 marg-bot">Калькулятор TeamProject</p>
+            </a>
+          </li>
+        </ul>
+      </span>
+    </section>
+
+  </nav>
+  <div id="help1-1-mark" class="modal7">
+    <div id="help1-2-mark">
+      <h2>Выбор итерации</h2><br>
+      <p>Необходимо выбрать определенную итерацию, за которую Вы хотите проставить оценки.</p>
+      <button type="button" class="btn-close"  onclick="shwoModal1mark()" ;">Далее</button>
+    </div>
+  </div>
+  <div id="help2-1-mark" class="hidden modal7">
+    <div id="help2-2-mark">
+      <h2>Коэффициенты оценивания</h2><br>
+      <p>
+        Итоговая оценка расчитывается с учетом данных коэффициентов. Она расчитывается по формуле:
+      </p><br>
+      <p>Итоговый балл студента =
+        коэффициент участия * сводную оценку экспертной
+        комиссии.
+      </p>
+      <button type="button" class="btn-close"  onclick="shwoModal2mark();">Далее</button>
+    </div>
+  </div>
+  <div id="help3-1-mark" class="hidden modal7">
+    <div id="help3-2-mark">
+      <h2>Выставление оценки</h2><br>
+      <p>
+        Здесь Вы выставляете баллы участникам команды и куратору за их работу над проектом. Важно заметить, что оценка вытавляется исключительно по Вашему мнению.
+      </p><br>
+      <p>
+        Главное выставлять баллы участникам ровно в указанный период итерации, иначе Ваша оценка за нее будет равна нулю.  
+      </p>
+      <button type="button" class="btn-close"  onclick="closeModalmark();">Далее</button>
+    </div>
+  </div>
+
+  <section class="pull-right page-right-column">
+    <section class="header-wrapper">
+      <header class="header padding-x">
+        <div class="header-left"></div>
+        <div class="header-right">
+          <span class="help-block">
+            <span class="help-title">Справка по сервису:</span>
+            <span class="help-links">
+              <span class="title-wrapper">
+                <img src="{% static 'team_project_app/images/иконки с инф.svg' %}" title="Инструкции для студента">
+              </span>
+            </span>
+          </span>
+          <div class="dropdown">
+            <div class="user-menu">
+              <span class="user-name pull-left">Александр Алаев Александрович</span>
+              <div class="user-avatar">
+                <div class="user-avatar-letters inactive">AA</div>
+              </div>
+            </div>
+          </div>
+          </span>
+        </div>
+      </header>
+    </section>
+    <main class="content-main">
+      <div>
+        <div>
+          <section class="breadcrumbs">
+            <ul>
+              <li class="color-href">
+                <p>Список проектов</p>
+              </li>
+              <li>
+                <span class="arrow"></span>
+              </li>
+              <li class="text-muted">
+                <span>21/ЛКП-889-2022. 1С22S.LR. Обучающее приложение для прохождения компьютерной игры 49 (49)</span>
+              </li>
+            </ul>
+          </section>
+          <div>
+            <div class="page-title-row mb-s">
+              <h2 class="mb-xs headings-h2">Оценка по итерациям</h2>
+              <div class="control-wrapper">
+                <select class="custom-select">
+                  <option disabled="disabled" value="">Итерация не выбрана</option>
+                  <option value="[object Object]">Старт проекта (16.02.2022 - 25.05.2022)</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-s">
+              <div>
+                <h4 class="title padding-y">Коэффициенты оценивания:</h4>
+                <p>
+                  <span class="item ">Взаимная оценка студентов <span class="highlighted">0,3</span></span>
+                  <span class="item ">Оценка куратора <span class="highlighted">0,7</span></span>
+                </p>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="card-wrapper col-x1-12">
+                <div class="card">
+                  <div class="table-wrapper">
+                    <div class="inner">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Имя</th>
+                            <th>Роль в команде</th>
+                            <th>Ваша оценка</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="user-wrapper img-YA">
+                                <span class="participant-name ">Яковлева Александра Павловна</span>
+                              </div>
+                            </td>
+                            <td><strong>Куратор</strong></td>
+                            <td>100</td>
+                            <td><input type="text" placeholder="Напишите комментарий" readonly="readonly"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="user-wrapper img-MC">
+                                <span class="participant-name ">Мухин Сергей</span>
+                              </div>
+                            </td>
+                            <td>Не указана</td>
+                            <td>85</td>
+                            <td><input type="text" placeholder="Напишите комментарий" readonly="readonly"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="user-wrapper img-PL">
+                                <span class="participant-name ">Плотникова Лея</span>
+                              </div>
+                            </td>
+                            <td>Не указана</td>
+                            <td>85</td>
+                            <td><input type="text" placeholder="Напишите комментарий" readonly="readonly"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="user-wrapper img-GM">
+                                <span class="participant-name ">Герасимов Михаил</span>
+                              </div>
+                            </td>
+                            <td>Не указана</td>
+                            <td>85</td>
+                            <td><input type="text" placeholder="Напишите комментарий" readonly="readonly"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+  <script src="{% static 'team_project_app/js/main.js' %}"></script>
+</body>
+
+</html>

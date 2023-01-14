@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор TeamProject</title>
+  <link rel="stylesheet" href="{% static 'team_project_app/css/style.css' %}" >
+  <link rel="stylesheet" href="{% static 'team_project_app/css/style1.css' %}" >
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    .img-about {
+    background-image: url("{% static 'team_project_app/images/проект (1).svg' %}" );
+    background-repeat: no-repeat;
+    background-size: 17px,17px;
+    background-position: 50px 15px;
+    }
+
+    .img-task {
+    background-image: url("{% static 'team_project_app/images/Mask group.svg' %}" );
+    background-repeat: no-repeat;
+    background-size: 13px,15px;
+    background-position: 50px 15px;
+    }
+
+    .img-team{
+      background-image: url("{% static 'team_project_app/images/команда.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 30px,27px;
+      background-position: 43px 8px;
+    }
+
+    .img-lenta{
+      background-image: url("{% static 'team_project_app/images/список.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 15px,15px;
+      background-position: 50px 15px;
+    }
+
+    .img-doc{
+      background-image: url("{% static 'team_project_app/images/документ.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 15px,15px;
+      background-position: 50px 15px;
+    }
+
+    .img-time{
+      background-image: url("{% static 'team_project_app/images/календарь.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 14px,14px;
+      background-position: 52px 15px;
+    }
+
+    .img-discuss{
+      background-image: url("{% static 'team_project_app/images/сообщения.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 16px,16px;
+      background-position: 52px 15px;
+    }
+
+    .img-result{
+      background-image: url("{% static 'team_project_app/images/звездуля.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 17px,15px;
+      background-position: 33px 15px;
+    }
+</style>
+
+<body>
+
+  <nav class="pull-left page-left-column test fixed">
+
+
+
+    <header class="nav-header">
+      <a href="https://urfu.ru/ru/" target="" class="pull-left">
+        <img src="{% static 'team_project_app/images/logo.png' %}" alt="УрФУ">
+      </a>
+    </header>
+    <section>
+      <ul>
+        <li>
+          <a href="/about">
+            <p class="headings-nav1 img-about">
+              О проекте</p>
+          </a>
+        </li>
+        <li>
+          <a href="/task">
+            <p class="headings-nav2 img-task">
+              Задачи</p>
+          </a>
+        </li>
+        <li>
+          <a href="/team">
+            <p class="headings-nav2 img-team">
+              Команда</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="/lenta">
+            <p class="headings-nav2 img-lenta">
+              Лента событий</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="/doc">
+            <p class="headings-nav2 img-doc">
+              Документы</p>
+          </a>
+        </li>
+        <li>
+          <a href="/time">
+            <p class="headings-nav2 img-time">
+              Календарь</p>
+          </a>
+        </li>
+        <li>
+          <a href="/discuss">
+            <p class="headings-nav2 img-discuss">
+              Обсуждение</p>
+          </a>
+        </li>
+      </ul>
+      <br>
+      <span block class="line">
+        <p class="headings-nav3 img-result">
+          Результаты и оценки
+        </p>
+
+        <ul block>
+          <li>
+            <a href="/markForIter">
+              <p class="headings-nav5">Оценка по итерациям</p>
+            </a>
+          </li>
+          <li>
+            <a href="/result">
+              <p class="headings-nav5">Результаты проекта</p>
+            </a>
+          </li>
+          <li>
+            <a href="/calculate">
+              <p class="headings-nav5 marg-bot" active>Калькулятор TeamProject</p>
+            </a>
+          </li>
+        </ul>
+      </span>
+    </section>
+
+  </nav>
+
+  <div id="help1-1-calc" class=" modal9">
+    <div id="help1-2-calc">
+      <p>Калькулятор TeamProject</p><br>
+
+      <p>Представляем Вашему вниманию Калькулятор TeamProject, который позволит Вам смоделировать ту или иную итоговую
+        оценку при определённых баллах, проставив их самостоятельно. Калькулятор поможет Вам оценить свои возможности и
+        вывести приблизительный балл. .</p>
+      <button type="button" class="btn-close" onclick="closeModalcalc1();">Далее</button>
+    </div>
+  </div>
+
+  <div id="help2-1-calc" class=" modal9 hidden">
+    <div id="help2-2-calc">
+      <p>Оценка по итерациям</p><br>
+
+      <p>
+        В данной таблице Вы можете выставить возможные баллы каждого участника проекта за одну итерацию, а также
+        поставить приблизительную оценку куратора.
+      </p>
+      <button type="button" class="btn-close" onclick="closeModalcalc2();">Далее</button>
+    </div>
+  </div>
+  <div id="help3-1-calc" class=" modal9 hidden">
+    <div id="help3-2-calc">
+      <p>Итоговый балл</p><br>
+
+      <p>
+        В этом столбце будут отображаться итоговые баллы каждого студента, рассчитанные по формуле:
+        итог = сумма взаимных оценок * 0,3 + оценка куратора * 0,7.
+      </p>
+      <button type="button" class="btn-close" onclick="closeModalcalc3();">Далее</button>
+    </div>
+  </div>
+  <div id="help4-1-calc" class=" modal9 hidden">
+    <div id="help4-2-calc">
+      <p>Добавление итерации</p><br>
+
+      <p>
+
+        С помощью кнопки добавления итераций возможно вывести до пяти таблиц с оценками студентов.
+
+      </p>
+      <button type="button" class="btn-close" onclick="closeModalcalc4();">Далее</button>
+    </div>
+  </div>
+  <div id="help5-1-calc" class=" modal9 hidden">
+    <div id="help5-2-calc">
+      <p>Оценки за итерации</p><br>
+
+      <p>
+
+
+        Здесь будут выведены баллы за все итерации с колонок “Итог”.
+
+
+      </p>
+      <button type="button" class="btn-close" onclick="closeModalcalc5();">Далее</button>
+    </div>
+  </div>
+  <div id="help6-1-calc" class=" modal9 hidden">
+    <div id="help6-2-calc">
+      <p>Сумма за итерации</p><br>
+
+      <p>
+
+В данном столбце отображаются баллы, которые являются суммой всех оценок за итерации.  
+      </p>
+      <button type="button" class="btn-close" onclick="closeModalcalc6();">Далее</button>
+    </div>
+  </div>
+  <div id="help7-1-calc" class=" modal9 hidden">
+    <div id="help7-2-calc">
+      <p>Коэффициент участия</p><br>
+
+      <p>
+
+
+        Вы можете увидеть какой коэффициент участия будет у студента с теми или иными оценками. Он выставляется автоматически, рассчитывая от самого наибольшего балла в группе.
+         
+      </p>
+      <button type="button" class="btn-close" onclick="closeModalcalc7();">Далее</button>
+    </div>
+  </div>
+  <div id="help8-1-calc" class=" modal9 hidden">
+    <div id="help8-2-calc">
+      <p>Оценка комиссии</p><br>
+
+      <p>
+        Необходимо выставить примерную оценку за защиту Вашего проекта. 
+      </p>
+      <button type="button" class="btn-close" onclick="closeModalcalc8();">Далее</button>
+    </div>
+  </div>
+  <div id="help9-1-calc" class=" modal9 hidden">
+    <div id="help9-2-calc">
+      <p>Итоговый балл</p><br>
+
+      <p>
+Это итоговая оценка за весь проект, рассчитанная как произведение коэффициента участия и оценки экспертов.  
+
+      </p>
+      <button type="button" class="btn-close" onclick="closeModalcalc();">Далее</button>
+    </div>
+  </div>
+
+  <section class="pull-right page-right-column">
+    <section class="header-wrapper">
+      <header class="header padding-x">
+        <div class="header-left"></div>
+        <div class="header-right">
+          <span class="help-block">
+            <span class="help-title">Справка по сервису:</span>
+            <span class="help-links">
+              <span class="title-wrapper">
+                <img src="{% static 'team_project_app/images/иконки с инф.svg' %}" title="Инструкции для студента">
+              </span>
+            </span>
+          </span>
+          <div class="dropdown">
+            <div class="user-menu">
+              <span class="user-name pull-left">Александр Алаев Александрович</span>
+              <div class="user-avatar">
+                <div class="user-avatar-letters inactive">AA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </section>
+    <main class="content-main">
+      <div>
+        <div>
+          <section class="breadcrumbs">
+            <ul>
+              <li class="color-href">
+                <p>Список проектов</p>
+              </li>
+              <li>
+                <span class="arrow"></span>
+              </li>
+              <li class="text-muted">
+                <span>21/ЛКП-889-2022. 1С22S.LR. Обучающее приложение для прохождения компьютерной игры 49 (49)</span>
+              </li>
+            </ul>
+          </section>
+          <div>
+            <div class="page-title-row mb-s">
+              <h2 class="mb-xs headings-h2">Калькулятор TeamProject</h2>
+            </div>
+            <div class="row">
+              <div class="card-wrapper col-x1-12">
+                <div class="card">
+                  <div class="table-wrapper">
+                    <div calc class="inner">
+                      <table iter>
+                        <thead>
+                          <th></th>
+                          <th>Участник 1</th>
+                          <th>Участник 2</th>
+                          <th>Участник 3</th>
+                          <th>Участник 4</th>
+                          <th>Участник 5</th>
+                          <th>Куратор</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Участник 1</td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-1-2" onchange="setSUM1_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-1-3" onchange="setSUM1_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-1-4" onchange="setSUM1_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-1-5" onchange="setSUM1_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-1-6" onchange="setSUM1_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 2</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-2-1" onchange="setSUM1_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-2-3" onchange="setSUM1_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-2-4" onchange="setSUM1_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-2-5" onchange="setSUM1_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-2-6" onchange="setSUM1_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 3</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-3-1" onchange="setSUM1_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-3-2" onchange="setSUM1_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-3-4" onchange="setSUM1_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-3-5" onchange="setSUM1_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-3-6" onchange="setSUM1_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 4</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-4-1" onchange="setSUM1_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-4-2" onchange="setSUM1_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-4-3" onchange="setSUM1_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-4-5" onchange="setSUM1_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-4-6" onchange="setSUM1_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 5</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-5-1" onchange="setSUM1_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-5-2" onchange="setSUM1_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-5-3" onchange="setSUM1_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-5-4" onchange="setSUM1_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-5-6" onchange="setSUM1_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Куратор</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-6-1" onchange="setSUM1_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-6-2" onchange="setSUM1_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-6-3" onchange="setSUM1_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-6-4" onchange="setSUM1_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable1-6-5" onchange="setSUM1_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                          </tr>
+                          <tr itog>
+                            <td>Итог</td>
+                            <td class="dt-calc" id="inputTableSum1-1"></td>
+                            <td class="dt-calc" id="inputTableSum1-2"></td>
+                            <td class="dt-calc" id="inputTableSum1-3"></td>
+                            <td class="dt-calc" id="inputTableSum1-4"></td>
+                            <td class="dt-calc" id="inputTableSum1-5"></td>
+                            <td class="dt-calc" id="inputTableSum1-6"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+
+                      <!-- ТАБЛИЦА 2 -->
+                      <table iter class="hidden" id="inputTable2">
+
+                        <thead>
+                          <th></th>
+                          <th>Участник 1</th>
+                          <th>Участник 2</th>
+                          <th>Участник 3</th>
+                          <th>Участник 4</th>
+                          <th>Участник 5</th>
+                          <th>Куратор</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Участник 1</td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-1-2" onchange="setSUM2_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-1-3" onchange="setSUM2_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-1-4" onchange="setSUM2_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-1-5" onchange="setSUM2_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-1-6" onchange="setSUM2_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 2</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-2-1" onchange="setSUM2_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-2-3" onchange="setSUM2_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-2-4" onchange="setSUM2_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-2-5" onchange="setSUM2_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-2-6" onchange="setSUM2_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 3</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-3-1" onchange="setSUM2_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-3-2" onchange="setSUM2_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-3-4" onchange="setSUM2_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-3-5" onchange="setSUM2_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-3-6" onchange="setSUM2_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 4</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-4-1" onchange="setSUM2_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-4-2" onchange="setSUM2_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-4-3" onchange="setSUM2_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-4-5" onchange="setSUM2_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-4-6" onchange="setSUM2_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 5</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-5-1" onchange="setSUM2_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-5-2" onchange="setSUM2_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-5-3" onchange="setSUM2_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-5-4" onchange="setSUM2_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-5-6" onchange="setSUM2_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Куратор</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-6-1" onchange="setSUM2_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-6-2" onchange="setSUM2_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-6-3" onchange="setSUM2_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-6-4" onchange="setSUM2_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable2-6-5" onchange="setSUM2_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                          </tr>
+                          <tr itog>
+                            <td>Итог</td>
+                            <td class="dt-calc" id="inputTableSum2-1"></td>
+                            <td class="dt-calc" id="inputTableSum2-2"></td>
+                            <td class="dt-calc" id="inputTableSum2-3"></td>
+                            <td class="dt-calc" id="inputTableSum2-4"></td>
+                            <td class="dt-calc" id="inputTableSum2-5"></td>
+                            <td class="dt-calc" id="inputTableSum2-6"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+
+
+                      <!-- ТАБЛИЦА 3 -->
+                      <table iter class="hidden" id="inputTable3">
+
+                        <thead>
+                          <th></th>
+                          <th>Участник 1</th>
+                          <th>Участник 2</th>
+                          <th>Участник 3</th>
+                          <th>Участник 4</th>
+                          <th>Участник 5</th>
+                          <th>Куратор</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Участник 1</td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-1-2" onchange="setSUM3_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-1-3" onchange="setSUM3_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-1-4" onchange="setSUM3_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-1-5" onchange="setSUM3_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-1-6" onchange="setSUM3_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 2</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-2-1" onchange="setSUM3_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-2-3" onchange="setSUM3_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-2-4" onchange="setSUM3_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-2-5" onchange="setSUM3_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-2-6" onchange="setSUM3_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 3</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-3-1" onchange="setSUM3_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-3-2" onchange="setSUM3_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-3-4" onchange="setSUM3_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-3-5" onchange="setSUM3_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-3-6" onchange="setSUM3_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 4</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-4-1" onchange="setSUM3_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-4-2" onchange="setSUM3_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-4-3" onchange="setSUM3_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-4-5" onchange="setSUM3_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-4-6" onchange="setSUM3_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 5</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-5-1" onchange="setSUM3_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-5-2" onchange="setSUM3_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-5-3" onchange="setSUM3_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-5-4" onchange="setSUM3_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-5-6" onchange="setSUM3_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Куратор</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-6-1" onchange="setSUM3_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-6-2" onchange="setSUM3_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-6-3" onchange="setSUM3_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-6-4" onchange="setSUM3_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable3-6-5" onchange="setSUM3_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                          </tr>
+                          <tr  itog>
+                            <td itog >Итог</td>
+                            <td class="dt-calc" id="inputTableSum3-1"></td>
+                            <td class="dt-calc" id="inputTableSum3-2"></td>
+                            <td class="dt-calc" id="inputTableSum3-3"></td>
+                            <td class="dt-calc" id="inputTableSum3-4"></td>
+                            <td class="dt-calc" id="inputTableSum3-5"></td>
+                            <td class="dt-calc" id="inputTableSum3-6"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+                      <!-- ТАБЛИЦА 4 -->
+                      <table iter class="hidden" id="inputTable4">
+
+                        <thead>
+                          <th></th>
+                          <th>Участник 1</th>
+                          <th>Участник 2</th>
+                          <th>Участник 3</th>
+                          <th>Участник 4</th>
+                          <th>Участник 5</th>
+                          <th>Куратор</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Участник 1</td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-1-2" onchange="setSUM4_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-1-3" onchange="setSUM4_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-1-4" onchange="setSUM4_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-1-5" onchange="setSUM4_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-1-6" onchange="setSUM4_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 2</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-2-1" onchange="setSUM4_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-2-3" onchange="setSUM4_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-2-4" onchange="setSUM4_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-2-5" onchange="setSUM4_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-2-6" onchange="setSUM4_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 3</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-3-1" onchange="setSUM4_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-3-2" onchange="setSUM4_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-3-4" onchange="setSUM4_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-3-5" onchange="setSUM4_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-3-6" onchange="setSUM4_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 4</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-4-1" onchange="setSUM4_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-4-2" onchange="setSUM4_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-4-3" onchange="setSUM4_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-4-5" onchange="setSUM4_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-4-6" onchange="setSUM4_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 5</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-5-1" onchange="setSUM4_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-5-2" onchange="setSUM4_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-5-3" onchange="setSUM4_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-5-4" onchange="setSUM4_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-5-6" onchange="setSUM4_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Куратор</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-6-1" onchange="setSUM4_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-6-2" onchange="setSUM4_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-6-3" onchange="setSUM4_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-6-4" onchange="setSUM4_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable4-6-5" onchange="setSUM4_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                          </tr>
+                          <tr  itog>
+                            <td itog>Итог</td>
+                            <td class="dt-calc" id="inputTableSum4-1"></td>
+                            <td class="dt-calc" id="inputTableSum4-2"></td>
+                            <td class="dt-calc" id="inputTableSum4-3"></td>
+                            <td class="dt-calc" id="inputTableSum4-4"></td>
+                            <td class="dt-calc" id="inputTableSum4-5"></td>
+                            <td class="dt-calc" id="inputTableSum4-6"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+                      <!-- ТАБЛИЦА 5 -->
+                      <table iter class="hidden" id="inputTable5">
+
+                        <thead>
+                          <th></th>
+                          <th>Участник 1</th>
+                          <th>Участник 2</th>
+                          <th>Участник 3</th>
+                          <th>Участник 4</th>
+                          <th>Участник 5</th>
+                          <th>Куратор</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Участник 1</td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-1-2" onchange="setSUM5_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-1-3" onchange="setSUM5_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-1-4" onchange="setSUM5_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-1-5" onchange="setSUM5_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-1-6" onchange="setSUM5_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 2</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-2-1" onchange="setSUM5_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-2-3" onchange="setSUM5_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-2-4" onchange="setSUM5_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-2-5" onchange="setSUM5_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-2-6" onchange="setSUM5_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 3</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-3-1" onchange="setSUM5_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-3-2" onchange="setSUM5_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-3-4" onchange="setSUM5_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-3-5" onchange="setSUM5_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-3-6" onchange="setSUM5_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 4</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-4-1" onchange="setSUM5_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-4-2" onchange="setSUM5_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-4-3" onchange="setSUM5_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-4-5" onchange="setSUM5_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-4-6" onchange="setSUM5_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Участник 5</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-5-1" onchange="setSUM5_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-5-2" onchange="setSUM5_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-5-3" onchange="setSUM5_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-5-4" onchange="setSUM5_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-5-6" onchange="setSUM5_6()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                          </tr>
+                          <tr>
+                            <td>Куратор</td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-6-1" onchange="setSUM5_1()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-6-2" onchange="setSUM5_2()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-6-3" onchange="setSUM5_3()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-6-4" onchange="setSUM5_4()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc"><input pattern="[0-9]" value="0" class="input-calc" type="number"
+                                min="0" id="inputTable5-6-5" onchange="setSUM5_5()"
+                                oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc">&#10006;</td>
+                          </tr>
+                          <tr  itog>
+                            <td itog>Итог</td>
+                            <td class="dt-calc" id="inputTableSum5-1"></td>
+                            <td class="dt-calc" id="inputTableSum5-2"></td>
+                            <td class="dt-calc" id="inputTableSum5-3"></td>
+                            <td class="dt-calc" id="inputTableSum5-4"></td>
+                            <td class="dt-calc" id="inputTableSum5-5"></td>
+                            <td class="dt-calc" id="inputTableSum5-6"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <br>
+                      <div class="topicball">
+                        <p>Итоговой балл = сумма взаимных оценок * 0,3 + оценка куратора * 0,7</p>
+                      </div>
+                      <button but-doc class="btn btn-addIter" onclick="AddTable()">
+                        <div class="color-01">
+                          <p>Добавить итерацию</p>
+                        </div>
+                      </button>
+                      <br>
+                      <table itog id="table-price-box">
+                        <thead class="text-center">
+                          <tr>
+                            <th></th>
+                            <th class="text-center ">Итерациия 1</th>
+                            <th class="text-center">Итерациия 2</th>
+                            <th class="text-center">Итерациия 3</th>
+                            <th id="thIter4" class="text-center hidden">Итерациия 4</th>
+                            <th id="thIter5" class="text-center hidden">Итерациия 5</th>
+                            <th class="text-center">Сумма за все<br>итерации</th>
+                            <th class="text-center">Коэффициент<br>участия</th>
+                            <th class="text-center">Оценка<br>комиссии</th>
+                            <th class="text-center">Итог</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="dt-calc">Участник 1</td>
+                            <td id="iter1-1" class="dt-calc">0
+                            </td>
+                            <td id="iter2-1" class="dt-calc">0
+                            </td>
+                            <td id="iter3-1" class="dt-calc">0
+                            </td>
+                            <td id="iter4-1" class="dt-calc hidden">0
+
+                            </td>
+                            <td id="iter5-1" class="dt-calc hidden">0
+
+                            </td>
+                            <td class="dt-calc" id="sum2">0</td>
+                            <td class="dt-calc" id="part2"></td>
+                            <td class="dt-calc" rowspan="5"><input value="0" class="input-calc" type="number" min="0"
+                                id="markKom" onchange="setPart()" oninput="this.value = Math.abs(this.value)" /></td>
+                            <td class="dt-calc" id="itog2">0</td>
+                          </tr>
+                          <tr>
+                            <td class="dt-calc">Участник 2</td>
+                            <td id="iter1-2" class="dt-calc">0
+                            </td>
+                            <td id="iter2-2" class="dt-calc">0
+                            </td>
+                            <td id="iter3-2" class="dt-calc">0
+                            </td>
+                            <td id="iter4-2" class="dt-calc hidden">0
+                            </td>
+                            <td id="iter5-2" class="dt-calc hidden">0
+
+                            </td>
+                            <td class="dt-calc" id="sum3">0</td>
+                            <td class="dt-calc" id="part3"></td>
+
+                            <td class="dt-calc" id="itog3">0</td>
+                          </tr>
+                          <tr>
+                            <td class="dt-calc">Участник 3</td>
+                            <td id="iter1-3" class="dt-calc">0
+                            </td>
+                            <td id="iter2-3" class="dt-calc">0
+                            </td>
+                            <td id="iter3-3" class="dt-calc">0
+                            </td>
+                            <td id="iter4-3" class="dt-calc hidden">0
+                            </td>
+                            <td id="iter5-3" class="dt-calc hidden">0
+
+                            </td>
+                            <td class="dt-calc" id="sum4">0</td>
+                            <td class="dt-calc" id="part4"></td>
+                            <td class="dt-calc" id="itog4">0</td>
+                          </tr>
+                          <tr>
+                            <td class="dt-calc">Участник 4</td>
+                            <td id="iter1-4" class="dt-calc">0
+                            </td>
+                            <td id="iter2-4" class="dt-calc">0
+                            </td>
+                            <td id="iter3-4" class="dt-calc">0
+                            </td>
+                            <td id="iter4-4" class="dt-calc hidden">0
+                            </td>
+                            <td id="iter5-4" class="dt-calc hidden">0
+
+                            </td>
+                            <td class="dt-calc" id="sum5">0</td>
+                            <td class="dt-calc" id="part5"></td>
+                            <td class="dt-calc" id="itog5">0</td>
+                          </tr>
+                          <tr>
+                            <td class="dt-calc">Участник 5</td>
+                            <td id="iter1-5" class="dt-calc">0
+                            </td>
+                            <td id="iter2-5" class="dt-calc">0
+                            </td>
+                            <td id="iter3-5" class="dt-calc">0
+                            </td>
+                            <td id="iter4-5" class="dt-calc hidden">0
+                            </td>
+                            <td id="iter5-5" class="dt-calc hidden">0
+
+                            </td>
+                            <td class="dt-calc" id="sum6">0</td>
+                            <td class="dt-calc" id="part6"></td>
+                            <td class="dt-calc" id="itog6">0</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="topicball">
+                        <p>Коэффициент участия каждого студента рассчитывается как отношение его суммарной текущей
+                          оценки по итерациям к наибольшей сумме баллов среди всех участников проектной команды.</p>
+                        <br>
+                        <p>Итоговый балл = коэффициент участия * оценка экспертной комиссии.</p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </main>
+  </section>
+  <script src="{% static 'team_project_app/js/main.js' %}"></script>
+  <script src="{% static 'team_project_app/js/calc.js' %}"></script>
+</body>
+
+</html>

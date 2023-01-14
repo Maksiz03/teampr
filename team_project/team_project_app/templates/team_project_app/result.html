@@ -1,0 +1,368 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Результаты проекта</title>
+  <link rel="stylesheet" href="{% static 'team_project_app/css/style.css' %}" >
+  <link rel="stylesheet" href="{% static 'team_project_app/css/style1.css' %}" >
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    .img-about {
+    background-image: url("{% static 'team_project_app/images/проект (1).svg' %}" );
+    background-repeat: no-repeat;
+    background-size: 17px,17px;
+    background-position: 50px 15px;
+    }
+
+    .img-task {
+    background-image: url("{% static 'team_project_app/images/Mask group.svg' %}" );
+    background-repeat: no-repeat;
+    background-size: 13px,15px;
+    background-position: 50px 15px;
+    }
+
+    .img-team{
+      background-image: url("{% static 'team_project_app/images/команда.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 30px,27px;
+      background-position: 43px 8px;
+    }
+
+    .img-lenta{
+      background-image: url("{% static 'team_project_app/images/список.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 15px,15px;
+      background-position: 50px 15px;
+    }
+
+    .img-doc{
+      background-image: url("{% static 'team_project_app/images/документ.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 15px,15px;
+      background-position: 50px 15px;
+    }
+
+    .img-time{
+      background-image: url("{% static 'team_project_app/images/календарь.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 14px,14px;
+      background-position: 52px 15px;
+    }
+
+    .img-discuss{
+      background-image: url("{% static 'team_project_app/images/сообщения.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 16px,16px;
+      background-position: 52px 15px;
+    }
+
+    .img-result{
+      background-image: url("{% static 'team_project_app/images/звездуля.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 17px,15px;
+      background-position: 33px 15px;
+    }
+</style>
+
+<body>
+
+  <nav class="pull-left page-left-column test fixed">
+
+
+
+    <header class="nav-header">
+      <a href="https://urfu.ru/ru/" target="" class="pull-left">
+        <img src="{% static 'team_project_app/images/logo.png' %}" alt="УрФУ">
+      </a>
+    </header>
+    <section>
+      <ul>
+        <li>
+          <a href="/about">
+            <p class="headings-nav1 img-about">
+              О проекте</p>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/task">
+            <p class="headings-nav2 img-task">
+              Задачи</p>
+          </a>
+        </li>
+        <li>
+          <a href="/team">
+            <p class="headings-nav2 img-team">
+              Команда</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="/lenta">
+            <p class="headings-nav2 img-lenta">
+              Лента событий</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="/doc">
+            <p class="headings-nav2 img-doc">
+              Документы</p>
+          </a>
+        </li>
+        <li>
+          <a href="/time">
+            <p class="headings-nav2 img-time">
+              Календарь</p>
+          </a>
+        </li>
+        <li>
+          <a href="/discuss">
+            <p class="headings-nav2 img-discuss">
+              Обсуждение</p>
+          </a>
+        </li>
+      </ul>
+      <br>
+      <span block class="line">
+        <p class="headings-nav3 img-result">
+          Результаты и оценки
+        </p>
+
+        <ul block>
+          <li>
+            <a href="/markForIter">
+              <p class="headings-nav5">Оценка по итерациям</p>
+            </a>
+          </li>
+          <li>
+            <a href="/result ">
+              <p class="headings-nav5" active>Результаты проекта</p>
+            </a>
+          </li>
+          <li>
+            <a href="/calculate">
+              <p class="headings-nav5 marg-bot">Калькулятор TeamProject</p>
+            </a>
+          </li>
+        </ul>
+      </span>
+    </section>
+
+  </nav>
+
+  <div id="help1-1-res" class=" modal8">
+    <div id="help1-2-res">
+      <h2>Оценка студентов по каждой итерации</h2><br>
+      <p>
+        Она расчитывается следующим образом: 0.3 * взаимная оценка студентов + 0.7 * оценка куратора.</p><br>
+
+      <p>Взаимная оценка студентов – это баллы, проставленные ему другими студентами проектной команды, иначе говоря -
+        средняя арифметическая оценка за итерацию.</p><br>
+
+      <p>Важно отметить, что если куратор Вашей команды не оценил ни одного участника проекта, то на итоговую оценку это
+        не повлияет.</p>
+
+      </p>
+      <button type="button" class="btn-close"  onclick="shwoModal1res()" ;">Далее</button>
+    </div>
+  </div>
+  <div id="help2-1-res" class="hidden modal8">
+    <div id="help2-2-res">
+      <p>Сумма оценок за все итерации. </p>
+      <button type="button" class="btn-close"  onclick="shwoModal2res()" ;">Далее</button>
+    </div>
+  </div>
+  <div id="help3-1-res" class="hidden modal8">
+    <div id="help3-2-res">
+      <h2>Коэффициент участия</h2><br>
+      <p>
+        Данный коэффиент отражает степень участия студента в работе над проектом. Он расчитывается относительно большей
+        суммы оценок за все итерации и не может быть больше 1.</p><br>
+
+        <p>В данном случает большей суммой является число 204.04, поэтому коэффициент участия расчитывается относительно
+        его.</p>
+      <button type="button" class="btn-close"  onclick="shwoModal3res()" ;">Далее</button>
+    </div>
+  </div>
+  <div id="help4-1-res" class="hidden modal8">
+    <div id="help4-2-res">
+      <h2>Оценка экспертов</h2><br>
+      <p>
+        Итоговый балл от экспертной комиссии, полученный студентами проектной команды по результатам защиты проекта.</p>
+      <button type="button" class="btn-close"  onclick="shwoModal4res()" ;">Далее</button>
+    </div>
+  </div>
+  <div id="help5-1-res" class="hidden modal8">
+    <div id="help5-2-res">
+      <h2>Итоговая оценка</h2><br>
+      <p>
+        Она равна произведению коэффициента участия и сводной оценки экспертной комиссии. Именно эти баллы выставляются в БРС. </p>
+      <button type="button" class="btn-close"  onclick="closeModalres()" ;">Далее</button>
+    </div>
+  </div>
+  <section class="pull-right page-right-column">
+    <section class="header-wrapper">
+      <header class="header padding-x">
+        <div class="header-left"></div>
+        <div class="header-right">
+          <span class="help-block">
+            <span class="help-title">Справка по сервису:</span>
+            <span class="help-links">
+              <span class="title-wrapper">
+                <img src="{% static 'team_project_app/images/иконки с инф.svg' %}" title="Инструкции для студента">
+              </span>
+            </span>
+          </span>
+          <div class="dropdown">
+            <div class="user-menu">
+              <span class="user-name pull-left">Александр Алаев Александрович</span>
+              <div class="user-avatar">
+                <div class="user-avatar-letters inactive">AA</div>
+              </div>
+            </div>
+          </div>
+          </span>
+        </div>
+      </header>
+    </section>
+    <main class="content-main">
+      <div>
+        <div>
+          <section class="breadcrumbs">
+            <ul>
+              <li class="color-href">
+                <p>Список проектов</p>
+              </li>
+              <li>
+                <span class="arrow"></span>
+              </li>
+              <li class="text-muted">
+                <span>21/ЛКП-889-2022. 1С22S.LR. Обучающее приложение для прохождения компьютерной игры 49 (49)</span>
+              </li>
+            </ul>
+          </section>
+          <div>
+            <div class="page-title-row mb-s">
+              <h2 class="mb-xs headings-h2">Результаты проекта</h2>
+              <div class="controls-wrapper">
+                <div class="form-group col">
+                  <label class="form-label text-muted">Сводная оценка экспертной комиссии за проект:</label>
+                  <a href="#" class="btn-success btn export-img pad-but">Скачать протокол</a>
+                </div>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="card-wrapper col-x1-12">
+                <div class="card">
+                  <div class="card-body">
+                    <ul class="legend">
+                      <li>
+                        <span class="strong">Итерация 1:</span>
+                        Старт проекта
+                      </li>
+                      <li>
+                        <span class="strong">Итерация 2:</span>
+                        MVP
+                      </li>
+                      <li>
+                        <span class="strong">Итерация 3:</span>
+                        Готовый продукт
+                      </li>
+                      <li>
+                        <span class="strong">Итерация 4:</span>
+                        Подготовка к защите
+                      </li>
+                    </ul>
+                    <div class="table-wrapper">
+                      <div class="inner">
+                        <table  res class="margin-toop">
+                          <thead>
+                            <tr>
+                              <th rowspan="2"></th>
+                              <th colspan="4" class="text-center">Итерации</th>
+                              <th rowspan="2" class="text-center">По всем<br>итерациям</th>
+                              <th rowspan="2" class="text-center">Коэффициент<br>участия</th>
+                              <th rowspan="2" class="text-center">Сводная<br>оценка<br>экспертной<br>комиссии</th>
+                              <th rowspan="2" class="text-center">Итог</th>
+                              <th rowspan="2" class="text-center">Пересдача</th> <!---->
+                            </tr>
+                            <tr>
+                              <th class="text-center">1</th>
+                              <th class="text-center">2</th>
+                              <th class="text-center">3</th>
+                              <th class="text-center">4</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><strong>Куратор: </strong>Яковлева Александра Павловна</td>
+                              <td class="text-center">100.00</td>
+                              <td class="text-center">100.00</td>
+                              <td class="text-center">00.00</td>
+                              <td class="text-center">91.00</td>
+                              <td class="text-center">291</td>
+                              <td class="text-center"></td>
+                              <td rowspan="5" class="text-center">70</td>
+                              <td class="text-center">73</td>
+                              <td class="text-center backcground-color-grey"></td>
+                            </tr>
+                            <tr>
+                              <td>Мухин Сергей</td>
+                              <td class="text-center">83.75</td>
+                              <td class="text-center">28.05</td>
+                              <td class="text-center">00.00</td>
+                              <td class="text-center">92.25</td>
+                              <td class="text-center">204.05</td>
+                              <td class="text-center">1</td>
+                              <td class="text-center">70</td>
+                              <td class="text-center">-</td>
+                            </tr>
+                            <tr>
+                              <td>Плотникова Лея</td>
+                              <td class="text-center">83.75</td>
+                              <td class="text-center">28.05</td>
+                              <td class="text-center">00.00</td>
+                              <td class="text-center">91.50</td>
+                              <td class="text-center">203.75</td>
+                              <td class="text-center">1</td>
+                              <td class="text-center">70</td>
+                              <td class="text-center">-</td>
+                            </tr>
+                            <tr>
+                              <td>Герасимов Михаил</td>
+                              <td class="text-center">81.50</td>
+                              <td class="text-center">26.35</td>
+                              <td class="text-center">00.00</td>
+                              <td class="text-center">90.75</td>
+                              <td class="text-center">198.80</td>
+                              <td class="text-center">0.97</td>
+                              <td class="text-center">68</td>
+                              <td class="text-center">-</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+  <script src="{% static 'team_project_app/js/main.js' %}"></script>
+</body>
+
+</html>

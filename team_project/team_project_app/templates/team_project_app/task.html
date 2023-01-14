@@ -1,0 +1,327 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Задачи</title>
+  <link rel="stylesheet" href="{% static 'team_project_app/css/style.css' %}" >
+  <link rel="stylesheet" href="{% static 'team_project_app/css/style1.css' %}" >
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    .img-about {
+    background-image: url("{% static 'team_project_app/images/проект (1).svg' %}" );
+    background-repeat: no-repeat;
+    background-size: 17px,17px;
+    background-position: 50px 15px;
+    }
+
+    .img-task {
+    background-image: url("{% static 'team_project_app/images/Mask group.svg' %}" );
+    background-repeat: no-repeat;
+    background-size: 13px,15px;
+    background-position: 50px 15px;
+    }
+
+    .img-team{
+      background-image: url("{% static 'team_project_app/images/команда.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 30px,27px;
+      background-position: 43px 8px;
+    }
+
+    .img-lenta{
+      background-image: url("{% static 'team_project_app/images/список.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 15px,15px;
+      background-position: 50px 15px;
+    }
+
+    .img-doc{
+      background-image: url("{% static 'team_project_app/images/документ.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 15px,15px;
+      background-position: 50px 15px;
+    }
+
+    .img-time{
+      background-image: url("{% static 'team_project_app/images/календарь.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 14px,14px;
+      background-position: 52px 15px;
+    }
+
+    .img-discuss{
+      background-image: url("{% static 'team_project_app/images/сообщения.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 16px,16px;
+      background-position: 52px 15px;
+    }
+
+    .img-result{
+      background-image: url("{% static 'team_project_app/images/звездуля.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 17px,15px;
+      background-position: 33px 15px;
+    }
+</style>
+
+<body>
+
+  <nav class="pull-left page-left-column test fixed">
+
+
+
+    <header class="nav-header">
+      <a href="https://urfu.ru/ru/" target="" class="pull-left">
+        <img src="{% static 'team_project_app/images/logo.png' %}" alt="УрФУ">
+      </a>
+    </header>
+    <section>
+      <ul>
+        <li>
+          <a href="/about">
+            <p class="headings-nav1 img-about">
+              О проекте</p>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/task">
+            <p class="headings-nav2 img-task" active>
+              Задачи</p>
+          </a>
+        </li>
+        <li>
+          <a href="/team">
+            <p class="headings-nav2 img-team">
+              Команда</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="/lenta">
+            <p class="headings-nav2 img-lenta">
+              Лента событий</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="/doc">
+            <p class="headings-nav2 img-doc">
+              Документы</p>
+          </a>
+        </li>
+        <li>
+          <a href="/time">
+            <p class="headings-nav2 img-time">
+              Календарь</p>
+          </a>
+        </li>
+        <li>
+          <a href="/discuss">
+            <p class="headings-nav2 img-discuss">
+              Обсуждение</p>
+          </a>
+        </li>
+      </ul>
+      <br>
+      <span block class="line">
+        <p class="headings-nav3 img-result">
+          Результаты и оценки
+        </p>
+
+        <ul block>
+          <li>
+            <a href="/markForIter">
+              <p class="headings-nav5">Оценка по итерациям</p>
+            </a>
+          </li>
+          <li>
+            <a href="/result">
+              <p class="headings-nav5">Результаты проекта</p>
+            </a>
+          </li>
+          <li>
+            <a href="/calculate">
+              <p class="headings-nav5 marg-bot">Калькулятор TeamProject</p>
+            </a>
+          </li>
+        </ul>
+      </span>
+    </section>
+
+  </nav>
+  <div id="help1-1-task" class=" modal1">
+    <div id="help1-2-task">
+      <h2>Файл с задачами</h2><br>
+      <p>Вы можете скачать документ, посмотреть итерации и соответсвенные им задачи, а также их срок выполнения, статус
+        и ответственное лицо. </p>
+      <button type="button" class="btn-close" onclick="shwoModal1Task()" ;">Далее</button>
+    </div>
+  </div>
+  <div id="help2-1-task" class=" hidden modal1">
+    <div id="help2-2-task">
+      <h2>Выбор задачи итерации</h2><br>
+      <p>
+        Количество итераций создает куратор </p>
+      <button type="button" class="btn-close"  onclick="shwoModal2Task()" ;">Далее</button>
+    </div>
+  </div>
+  <div id="help3-1-task" class=" hidden modal1">
+    <div id="help3-2-task">
+      
+      <p>
+        Визуализация информации задачи проекта. </p>
+      <button type="button" class="btn-close"  onclick="closeModal1()">Далее</button>
+    </div>
+  </div>
+  <section class="pull-right page-right-column">
+    <section class="header-wrapper">
+      <header class="header padding-x">
+        <div class="header-left"></div>
+        <div class="header-right">
+          <span class="help-block">
+            <span class="help-title">Справка по сервису:</span>
+            <span class="help-links">
+              <span class="title-wrapper">
+                <img src="{% static 'team_project_app/images/иконки с инф.svg' %}" title="Инструкции для студента">
+              </span>
+            </span>
+          </span>
+          <div class="dropdown">
+            <div class="user-menu">
+              <span class="user-name pull-left">Александр Алаев Александрович</span>
+              <div class="user-avatar">
+                <div class="user-avatar-letters inactive">AA</div>
+              </div>
+            </div>
+          </div>
+          </span>
+        </div>
+      </header>
+    </section>
+    <main class="content-main">
+      <div>
+        <div>
+          <section class="breadcrumbs">
+            <ul>
+              <li class="color-href">
+                <p>Список проектов</p>
+              </li>
+              <li>
+                <span class="arrow"></span>
+              </li>
+              <li class="text-muted">
+                <span>21/ЛКП-889-2022. 1С22S.LR. Обучающее приложение для прохождения компьютерной игры 49 (49)</span>
+              </li>
+            </ul>
+          </section>
+
+          <div>
+            <div class="clearfix mb-s">
+              <h2 class="mb-xs pull-left headings-h2">Задачи</h2>
+              <div class="pull-right clearfix iteration-inputs ">
+                <a href="#" class="btn-success btn export-img">Экспорт</a>
+                <div class="pull-right clearfix iteration-inputs">
+                  <select class="custom-select">
+                    <option  disabled="disabled" class="selectIterAll">Не выбрана</option>
+                    <option  class="selectIterAll1">Подготовка к защите проекта</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div id=" selectIter1" >
+              <div class="iteration-info-container card clearfix mb-xs  " task>
+                <div class="card-body">
+                  <div class="pull-left">
+                    <p class="text-task">Итерация: Подготовка к защите</p>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <ul>
+                    <li>
+                      <span class="text-muted">Дата начала:</span> 05 июня 2022
+                    </li>
+                    <li>
+                      <span class="text-muted">Дата окончания:</span> 14 июня 2022
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row task-padding" >
+
+                <div class="col-xl-3 col-sm-6 first-col">
+                  <div class="task-wrapper">
+                    <h4 class="mb-xs strong">Запланированно</h4>
+                    <div class="draggable-items-wrapper">
+
+                      <div class="card-wrapper col-sm-6 col-xl-3 ">
+                        <div class="card-task mb-s ">
+                          <section class="card-header ">
+                            <h2 class =" task-h2 ">Написание речи</h2>
+                          </section>
+                          <section >
+                            <img  src="{% static 'team_project_app/images/ПЛ.svg' %}" class="card-task-img-1">
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                  <div class="task-wrapper">
+                    <h4 class="mb-xs strong">В работе</h4>
+                    <div class="draggable-items-wrapper">
+                      <div class="card-wrapper col-sm-6 col-xl-3 ">
+                        <div class="card-task mb-s ">
+                          <section class="card-header ">
+                            <h2 class =" task-h2 ">Написание отчета</h2>
+                          </section>
+                          <section >
+                            <img src="{% static 'team_project_app/images/МС.svg' %}" class="card-task-img-1">
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                  <div class="task-wrapper">
+                    <h4 class="mb-xs strong">На проверке</h4>
+                    <div class="draggable-items-wrapper">
+                      <div class="card-wrapper col-sm-6 col-xl-3 ">
+                        <div class="card-task mb-s ">
+                          <section class="card-header ">
+                            <h2 class =" task-h2 ">Создание презентации</h2>
+                          </section>
+                          <section >
+                            <img src="{% static 'team_project_app/images/МС (1).svg' %}" class="card-task-img-1">
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                  <div class="task-wrapper">
+                    <h4 class="mb-xs strong">Сделанно</h4>
+                    <div class="draggable-items-wrapper"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </main>
+  </section>
+  <script src="{% static 'team_project_app/js/main.js' %}"></script>
+
+</body>
+
+</html>

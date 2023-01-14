@@ -1,0 +1,323 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Команда</title>
+    <link rel="stylesheet" href="{% static 'team_project_app/css/style.css' %}" >
+    <link rel="stylesheet" href="{% static 'team_project_app/css/style1.css' %}" >
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+
+  <style>
+    .img-about {
+    background-image: url("{% static 'team_project_app/images/проект (1).svg' %}" );
+    background-repeat: no-repeat;
+    background-size: 17px,17px;
+    background-position: 50px 15px;
+    }
+
+    .img-task {
+    background-image: url("{% static 'team_project_app/images/Mask group.svg' %}" );
+    background-repeat: no-repeat;
+    background-size: 13px,15px;
+    background-position: 50px 15px;
+    }
+
+    .img-team{
+      background-image: url("{% static 'team_project_app/images/команда.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 30px,27px;
+      background-position: 43px 8px;
+    }
+
+    .img-lenta{
+      background-image: url("{% static 'team_project_app/images/список.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 15px,15px;
+      background-position: 50px 15px;
+    }
+
+    .img-doc{
+      background-image: url("{% static 'team_project_app/images/документ.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 15px,15px;
+      background-position: 50px 15px;
+    }
+
+    .img-time{
+      background-image: url("{% static 'team_project_app/images/календарь.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 14px,14px;
+      background-position: 52px 15px;
+    }
+
+    .img-discuss{
+      background-image: url("{% static 'team_project_app/images/сообщения.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 16px,16px;
+      background-position: 52px 15px;
+    }
+
+    .img-result{
+      background-image: url("{% static 'team_project_app/images/звездуля.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 17px,15px;
+      background-position: 33px 15px;
+    }
+
+    .img-YA{
+    background-image: url("{% static 'team_project_app/images/ЯА.svg' %}" );
+    background-repeat: no-repeat;
+    background-size: 30px,30px;
+    background-position: 0px 9px;
+    }
+
+    .img-MC{
+      background-image: url("{% static 'team_project_app/images/МС.svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 30px,30px;
+      background-position: 0px 9px;
+    }
+
+    .img-PL{
+      background-image: url("{% static 'team_project_app/images/ПЛ (1).svg' %}" );
+      background-repeat: no-repeat;
+      background-size: 30px,30px;
+      background-position: 0px 9px;
+    }
+
+    .img-GM{
+    background-image: url("{% static 'team_project_app/images/ГМ.svg' %}" );
+    background-repeat: no-repeat;
+    background-size: 30px,30px;
+    background-position: 0px 9px;
+}
+</style>
+  
+  <body>
+    
+    <nav  class="pull-left page-left-column test fixed">
+      
+      
+      
+      <header class="nav-header">
+        <a href="https://urfu.ru/ru/" target="" class="pull-left">
+          <img  src="{% static 'team_project_app/images/logo.png' %}"alt="УрФУ">
+        </a>
+      </header>
+      <section>
+        <ul >
+          <li>
+            <a href="/about">
+              <p class="headings-nav1 img-about">
+                О проекте</p>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="/task">
+              <p class="headings-nav2 img-task" >
+                Задачи</p>
+            </a>
+          </li>
+          <li>
+            <a href="/team">
+              <p class="headings-nav2 img-team" active>
+                Команда</p>
+            </a>
+          </li>
+  
+          <li>
+            <a href="/lenta">
+              <p class="headings-nav2 img-lenta ">
+                Лента событий</p>
+            </a>
+          </li>
+  
+          <li>
+            <a href="/doc">
+              <p class="headings-nav2 img-doc">
+                Документы</p>
+            </a>
+          </li>
+          <li>
+            <a href="/time">
+              <p class="headings-nav2 img-time">
+                Календарь</p>
+            </a>
+          </li>
+          <li>
+            <a href="/discuss">
+              <p class="headings-nav2 img-discuss">
+                Обсуждение</p>
+            </a>
+          </li>
+        </ul>
+        <br>
+        <span block class="line" >
+          <p class="headings-nav3 img-result">
+            Результаты и оценки
+          </p>
+  
+          <ul block>
+            <li>
+              <a href="/markForIter">
+                <p class="headings-nav5">Оценка по итерациям</p>
+              </a>
+            </li>
+            <li>
+              <a href="/result">
+                <p class="headings-nav5">Результаты проекта</p>
+              </a>
+            </li>
+            <li>
+              <a href="/calculate">
+                <p class="headings-nav5 marg-bot">Калькулятор TeamProject</p>
+              </a>
+            </li>
+          </ul>
+        </span>
+      </section>
+    
+    </nav>
+
+    <div id="help1-1-team" class=" modal2">
+      <div id="help1-2-team">
+        <p>Информация о команде проекта. </p>
+        <button type="button" class="btn-close"  onclick="closeModal2()" ;">Далее</button>
+      </div>
+    </div>
+
+  <section class="pull-right page-right-column">
+    <section class="header-wrapper">
+      <header class="header padding-x">
+        <div class="header-left"></div>
+        <div class="header-right">
+          <span class ="help-block">
+            <span class="help-title">Справка по сервису:</span>
+            <span class="help-links">
+              <span class="title-wrapper">
+                <img  src="{% static 'team_project_app/images/иконки с инф.svg' %}" title="Инструкции для студента">
+              </span>
+            </span>
+          </span>
+            <div class="dropdown">
+              <div class="user-menu">
+                <span class="user-name pull-left">Александр Алаев Александрович</span>
+                <div class="user-avatar">
+                  <div class="user-avatar-letters inactive">AA</div>
+                </div>
+              </div>
+            </div>
+          </span>
+        </div>
+      </header>
+    </section>
+    <main class="content-main">
+      <div>
+        <div>
+          <section class="breadcrumbs">
+            <ul>
+              <li class="color-href">
+                <p>Список проектов</p>
+              </li>
+              <li>
+                <span class="arrow"></span>
+              </li>
+              <li class="text-muted">
+                <span>21/ЛКП-889-2022. 1С22S.LR. Обучающее приложение для прохождения компьютерной игры 49 (49)</span>
+              </li>
+            </ul>
+          </section>
+          <div>
+            <div class="page-title-row mb-s">
+              <h2 class="mb-xs headings-h2">Команда</h2>
+              <div class="controls-wrapper"></div>
+            </div>
+            <div class="row">
+              <div class="card-wrapper col-x1-12">
+                <div class="card">
+                  <div class="table-wrapper">
+                    <div class="inner">
+                      <table>
+                        <thead class="text-center">
+                          <tr>
+                            <th>Имя</th>
+                            <th>Группа</th>
+                            <th>Роль в команде</th>
+                            <th>Телефон</th>
+                            <th>Email</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="user-wrapper img-YA">
+                                <span class="participant-name ">Яковлева Александра Павловна</span>
+                              </div>
+                            </td>
+                            <td></td>
+                            <td class="text-center">
+                              <div>
+                                <span >Главный куратор</span>
+                              </div>
+                            </td>
+                            <td>
+                              <span></span>
+                            </td>
+                            <td>
+                              <span></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="user-wrapper img-MC">
+                                <span class="participant-name ">Мухин Сергей</span>
+                              </div>
+                            </td>
+                            <td class="text-center">РИ-110932</td>
+                            <td><div><span></span></div></td>
+                            <td><span></span></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="user-wrapper img-PL">
+                                <span class="participant-name ">Плотникова Лея</span>
+                              </div>
+                            </td>
+                            <td class="text-center">РИ-110947</td>
+                            <td><div><span></span></div></td>
+                            <td><span></span></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="user-wrapper img-GM">
+                                <span class="participant-name ">Герасимов Михаил</span>
+                              </div>
+                            </td>
+                            <td class="text-center">РИ-110933</td>
+                            <td><div><span></span></div></td>
+                            <td><span></span></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+  
+  <script src="{% static 'team_project_app/js/main.js' %}"></script>
+</body>
+</html>
